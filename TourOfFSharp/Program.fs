@@ -23,3 +23,16 @@ module Immutability =
     printfn $"otherNumber: {otherNumber}"
     otherNumber <- otherNumber + 1
     printfn $"otherNumber after mutation: {otherNumber}"
+
+module IntegersAndNumbers =
+    let int1 = 176
+    printfn $"int1: {int1}"
+    let aDouble = 4.1
+    printfn $"aDouble: {aDouble}"
+    let int2 = (int1/4 + 5 - 7) * 4 + int aDouble
+    printfn $"int2: {int2}"
+
+    let numbers = [ 0 .. 99 ]
+    printfn $"numbers:\n{numbers}"
+    let tableOfSquares = [ for i in 0 .. 99 -> (i, i*i) ]
+    printfn $"tableOfSquares:\n{tableOfSquares}"
