@@ -56,3 +56,11 @@ module StringManipulation =
     printfn $"{str3}"
     let str4 = """The computer said "hello world" when I told it to!"""
     printfn $"{str4}"
+
+module Tuples =
+    let tuple1 = (1, 2, 3)
+    let tuple2 = (1, "hello", 3.1415)
+    printfn $"tuple1: {tuple1}\ttuple2: {tuple2}"
+
+    let swapElems (a, b) = (b, a)
+    printfn $"The result of swapping (1, 2) is: {(swapElems (1,2))}"
