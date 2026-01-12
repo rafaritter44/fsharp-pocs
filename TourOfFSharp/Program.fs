@@ -41,4 +41,4 @@ module Booleans =
     let bool1 = true
     let bool2 = false
     let bool3 = not bool1 && (bool2 || false)
-    printfn $"bool3: {bool3}"
+    printfn $"bool3: %b{bool3}"
