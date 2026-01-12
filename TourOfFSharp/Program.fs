@@ -42,3 +42,17 @@ module Booleans =
     let bool2 = false
     let bool3 = not bool1 && (bool2 || false)
     printfn $"bool3: %b{bool3}"
+
+module StringManipulation =
+    let str1 = "Hello"
+    let str2 = "World"
+    let helloWorld = str1 + ", " + str2 + "!"
+    printfn "%s" helloWorld
+
+    let substring = helloWorld[0..6]
+    printfn $"{substring}"
+
+    let str3 = @"C:\Program Files\"
+    printfn $"{str3}"
+    let str4 = """The computer said "hello world" when I told it to!"""
+    printfn $"{str4}"
