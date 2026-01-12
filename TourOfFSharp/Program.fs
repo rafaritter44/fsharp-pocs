@@ -36,3 +36,9 @@ module IntegersAndNumbers =
     printfn $"numbers:\n{numbers}"
     let tableOfSquares = [ for i in 0 .. 99 -> (i, i*i) ]
     printfn $"tableOfSquares:\n{tableOfSquares}"
+
+module Booleans =
+    let bool1 = true
+    let bool2 = false
+    let bool3 = not bool1 && (bool2 || false)
+    printfn $"bool3: {bool3}"
