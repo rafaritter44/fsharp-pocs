@@ -64,3 +64,11 @@ module Tuples =
 
     let swapElems (a, b) = (b, a)
     printfn $"The result of swapping (1, 2) is: {(swapElems (1,2))}"
+
+    let structTuple = struct (1, 2)
+    // let thisWillNotCompile: (int*int) = struct (1, 2)
+
+    let convertFromStructTuple (struct(a, b)) = (a, b)
+    printfn $"Struct tuple: {structTuple}\nReference tuple made from the struct tuple: {(structTuple |> convertFromStructTuple)}"
+    let convertToStructTuple (a, b) = struct(a, b)
+    printfn $"Reference tuple: {(1,2)}\nStruct tuple made from the reference tuple: {((1,2) |> convertToStructTuple)}"
