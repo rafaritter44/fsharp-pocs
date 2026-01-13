@@ -134,3 +134,10 @@ module Lists =
             for day in 1..System.DateTime.DaysInMonth(2026, month) do
                 yield System.DateTime(2026, month, day) ]
     printfn $"The first 5 days of 2026 are: {daysList |> List.take 5}"
+
+    let blackSquares =
+        [ for i in 0..7 do
+            for j in 0..7 do
+                if (i+j) % 2 = 1 then
+                    yield (i, j) ]
+    printfn $"Chess board black squares:\n{blackSquares}"
