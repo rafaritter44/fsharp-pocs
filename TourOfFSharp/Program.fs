@@ -103,3 +103,7 @@ module PipelinesAndComposition =
         |> List.filter isOdd
         |> List.map(fun x -> x |> square |> addOne)
     printfn $"Processing {numbers} through 'squareOddValuesAndAddOneShorterPipeline': {squareOddValuesAndAddOneShorterPipeline numbers}"
+
+    let squareOddValuesAndAddOneComposition =
+        List.filter isOdd >> List.map (square >> addOne)
+    printfn $"Processing {numbers} through 'squareOddValuesAndAddOneComposition': {squareOddValuesAndAddOneComposition numbers}"
