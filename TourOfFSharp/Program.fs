@@ -72,3 +72,16 @@ module Tuples =
     printfn $"Struct tuple: {structTuple}\nReference tuple made from the struct tuple: {(structTuple |> convertFromStructTuple)}"
     let convertToStructTuple (a, b) = struct(a, b)
     printfn $"Reference tuple: {(1,2)}\nStruct tuple made from the reference tuple: {((1,2) |> convertToStructTuple)}"
+
+module PipelinesAndComposition =
+    let square x = x * x
+    let addOne x = x + 1
+    let isOdd x = x % 2 <> 0
+
+    let numbers = [ 1; 2; 3; 4; 5 ]
+
+    let squareOddValuesAndAddOne values =
+        let odds = List.filter isOdd values
+        let squares = List.map square odds
+        let result = List.map addOne squares
+        result
