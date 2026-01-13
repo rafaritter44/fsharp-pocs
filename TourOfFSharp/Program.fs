@@ -107,3 +107,13 @@ module PipelinesAndComposition =
     let squareOddValuesAndAddOneComposition =
         List.filter isOdd >> List.map (square >> addOne)
     printfn $"Processing {numbers} through 'squareOddValuesAndAddOneComposition': {squareOddValuesAndAddOneComposition numbers}"
+
+module Lists =
+    let list1 = []
+    let list2 = [1; 2; 3]
+    let list3 = [
+        1
+        2
+        3
+    ]
+    printfn $"Lists:\n{list1}\n{list2}\n{list3}"
