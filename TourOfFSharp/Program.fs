@@ -117,3 +117,14 @@ module Lists =
         3
     ]
     printfn $"Lists:\n{list1}\n{list2}\n{list3}"
+
+    let numberList = [1..1000]
+    let squares =
+        numberList
+        |> List.map (fun x -> x*x)
+    printfn $"Squares: {squares}"
+    let sumOfSquares =
+        numberList
+        |> List.filter (fun x -> x % 3 = 0)
+        |> List.sumBy (fun x -> x * x)
+    printfn $"Sum of squares of numbers divisible by 3 up to 1000: %d{sumOfSquares}"
