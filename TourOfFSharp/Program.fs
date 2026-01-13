@@ -90,3 +90,10 @@ module PipelinesAndComposition =
     let squareOddValuesAndAddOneNested values =
         List.map addOne (List.map square (List.filter isOdd values))
     printfn $"Processing {numbers} through 'squareOddValuesAndAddOneNested': {squareOddValuesAndAddOneNested numbers}"
+
+    let squareOddValuesAndAddOnePipeline values =
+        values
+        |> List.filter isOdd
+        |> List.map square
+        |> List.map addOne
+    printfn $"Processing {numbers} through 'squareOddValuesAndAddOnePipeline': {squareOddValuesAndAddOnePipeline numbers}"
