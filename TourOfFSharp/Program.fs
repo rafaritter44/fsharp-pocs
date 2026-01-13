@@ -85,3 +85,4 @@ module PipelinesAndComposition =
         let squares = List.map square odds
         let result = List.map addOne squares
         result
+    printfn $"Processing {numbers} through 'squareOddValuesAndAddOne': {squareOddValuesAndAddOne numbers}"
