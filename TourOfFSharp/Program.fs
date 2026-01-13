@@ -128,3 +128,9 @@ module Lists =
         |> List.filter (fun x -> x % 3 = 0)
         |> List.sumBy (fun x -> x * x)
     printfn $"Sum of squares of numbers divisible by 3 up to 1000: %d{sumOfSquares}"
+
+    let daysList =
+        [ for month in 1..12 do
+            for day in 1..System.DateTime.DaysInMonth(2026, month) do
+                yield System.DateTime(2026, month, day) ]
+    printfn $"The first 5 days of 2026 are: {daysList |> List.take 5}"
