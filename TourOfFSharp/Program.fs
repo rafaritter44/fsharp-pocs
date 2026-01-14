@@ -141,3 +141,15 @@ module Lists =
                 if (i+j) % 2 = 1 then
                     yield (i, j) ]
     printfn $"Chess board black squares:\n{blackSquares}"
+
+module Arrays =
+    let array1 = [||]
+    let array2 = [|"hello"; "world"; "and"; "hello"; "world"; "again"|]
+    let array3 = [|1..1000|]
+    let array4 =
+        [| for word in array2 do
+            if word.Contains("l") then
+                yield word |]
+    let evenNumbers = Array.init 1001 (fun n -> n * 2)
+    let evenNumbersSlice = evenNumbers[0..500]
+    printfn $"Arrays:\n%A{array1}\n%A{array2}\n%A{array3}\n%A{array4}\n%A{evenNumbers}\n%A{evenNumbersSlice}"
