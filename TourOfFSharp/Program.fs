@@ -174,3 +174,15 @@ module Sequences =
     let seq4 = seq {1..1000}
     let seq5 = Seq.init 1001 (fun n -> n * 2)
     printfn $"Sequences:\n%A{seq1}\n%A{seq2}\n%A{seq3}\n%A{seq4}\n%A{seq5}"
+
+    let rnd = System.Random()
+    let rec randomWalk x =
+        seq {
+            yield x
+            yield! randomWalk (x + rnd.NextDouble() - 0.5)
+        }
+    let first100ValuesOfRandomWalk =
+        randomWalk 5.0
+        |> Seq.truncate 100
+        |> Seq.toList
+    printfn $"first100ValuesOfRandomWalk: {first100ValuesOfRandomWalk}"
