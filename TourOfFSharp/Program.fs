@@ -191,3 +191,9 @@ module RecursiveFunctions =
     let rec factorial n =
         if n = 0 then 1 else n * factorial (n-1)
     printfn $"Factorial of 6 is: %d{factorial 6}"
+
+    let rec greatestCommonFactor a b =
+        if a = 0 then b
+        elif a < b then greatestCommonFactor a (b - a)
+        else greatestCommonFactor (a - b) b
+    printfn $"The greatest common factor of 300 and 620 is %d{greatestCommonFactor 300 620}"
