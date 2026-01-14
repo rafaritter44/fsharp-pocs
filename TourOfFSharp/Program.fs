@@ -157,3 +157,9 @@ module Arrays =
 
     for word in array4 do
         printfn $"Word: {word}"
+
+    let sumOfLengthsOfWords =
+        array2
+        |> Array.filter (fun x -> x.StartsWith "h")
+        |> Array.sumBy (fun x -> x.Length)
+    printfn $"sumOfLengthsOfWords: %d{sumOfLengthsOfWords}"
