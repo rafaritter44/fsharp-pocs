@@ -152,4 +152,5 @@ module Arrays =
                 yield word |]
     let evenNumbers = Array.init 1001 (fun n -> n * 2)
     let evenNumbersSlice = evenNumbers[0..500]
+    array2[1] <- "WORLD!"
     printfn $"Arrays:\n%A{array1}\n%A{array2}\n%A{array3}\n%A{array4}\n%A{evenNumbers}\n%A{evenNumbersSlice}"
