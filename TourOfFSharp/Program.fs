@@ -186,3 +186,8 @@ module Sequences =
         |> Seq.truncate 100
         |> Seq.toList
     printfn $"first100ValuesOfRandomWalk: {first100ValuesOfRandomWalk}"
+
+module RecursiveFunctions =
+    let rec factorial n =
+        if n = 0 then 1 else n * factorial (n-1)
+    printfn $"Factorial of 6 is: %d{factorial 6}"
