@@ -163,3 +163,14 @@ module Arrays =
         |> Array.filter (fun x -> x.StartsWith "h")
         |> Array.sumBy (fun x -> x.Length)
     printfn $"sumOfLengthsOfWords: %d{sumOfLengthsOfWords}"
+
+module Sequences =
+    let seq1 = Seq.empty
+    let seq2 = seq { yield "hello"; yield "world"; yield "and"; yield "hello"; yield "world"; yield "again" }
+    let seq3 =
+        seq { for word in seq2 do
+                if word.Contains("l") then
+                    yield word }
+    let seq4 = seq {1..1000}
+    let seq5 = Seq.init 1001 (fun n -> n * 2)
+    printfn $"Sequences:\n%A{seq1}\n%A{seq2}\n%A{seq3}\n%A{seq4}\n%A{seq5}"
