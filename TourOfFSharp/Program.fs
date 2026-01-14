@@ -197,3 +197,9 @@ module RecursiveFunctions =
         elif a < b then greatestCommonFactor a (b - a)
         else greatestCommonFactor (a - b) b
     printfn $"The greatest common factor of 300 and 620 is %d{greatestCommonFactor 300 620}"
+
+    let rec sumList xs =
+        match xs with
+        | []    -> 0
+        | y::ys -> y + sumList ys
+    printfn $"The sum of 1-10 is: %d{sumList [1..10]}"
