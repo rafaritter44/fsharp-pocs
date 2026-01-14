@@ -203,3 +203,10 @@ module RecursiveFunctions =
         | []    -> 0
         | y::ys -> y + sumList ys
     printfn $"The sum of 1-10 is: %d{sumList [1..10]}"
+
+    let rec private sumListTailRecHelper accumulator xs =
+        match xs with
+        | []    -> accumulator
+        | y::ys -> sumListTailRecHelper (accumulator+y) ys
+    let sumListTailRecursive xs = sumListTailRecHelper 0 xs
+    printfn $"The sum of 1-10 is: %d{sumListTailRecursive [1..10]}"
