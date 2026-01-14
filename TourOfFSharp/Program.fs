@@ -154,3 +154,6 @@ module Arrays =
     let evenNumbersSlice = evenNumbers[0..500]
     array2[1] <- "WORLD!"
     printfn $"Arrays:\n%A{array1}\n%A{array2}\n%A{array3}\n%A{array4}\n%A{evenNumbers}\n%A{evenNumbersSlice}"
+
+    for word in array4 do
+        printfn $"Word: {word}"
