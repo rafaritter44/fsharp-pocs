@@ -228,3 +228,7 @@ module RecordTypes =
             Phone = "(206) 555-0112"
             Verified = true }
     printfn $"Record created by copy-and-update:\n{contact2}"
+
+    let showContactCard (c: ContactCard) =
+        c.Name + " Phone: " + c.Phone + (if not c.Verified then " (unverified)" else "")
+    printfn $"Alf's contact card: {showContactCard contact1}"
