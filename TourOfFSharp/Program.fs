@@ -232,3 +232,17 @@ module RecordTypes =
     let showContactCard (c: ContactCard) =
         c.Name + " Phone: " + c.Phone + (if not c.Verified then " (unverified)" else "")
     printfn $"Alf's contact card: {showContactCard contact1}"
+
+    type ContactCardAlternate =
+        { Name     : string
+          Phone    : string
+          Address  : string
+          Verified : bool }
+          member this.PrintedContactCard =
+            this.Name + " Phone: " + this.Phone + (if not this.Verified then " (unverified) " else " ") + this.Address
+    let contactAlternate =
+        { Name = "Alf"
+          Phone = "(206) 555-0157"
+          Verified = false
+          Address = "111 Alf Street" }
+    printfn $"Alf's alternate contact card: {contactAlternate.PrintedContactCard}"
