@@ -222,3 +222,9 @@ module RecordTypes =
           Verified = false }
     let contactOnSameLine = { Name = "Alf"; Phone = "(206) 555-0157"; Verified = false }
     printfn $"Structural equality: {contact1 = contactOnSameLine}"
+
+    let contact2 =
+        { contact1 with
+            Phone = "(206) 555-0112"
+            Verified = true }
+    printfn $"Record created by copy-and-update:\n{contact2}"
