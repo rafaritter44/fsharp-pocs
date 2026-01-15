@@ -246,3 +246,16 @@ module RecordTypes =
           Verified = false
           Address = "111 Alf Street" }
     printfn $"Alf's alternate contact card: {contactAlternate.PrintedContactCard}"
+
+    [<Struct>]
+    type ContactCardStruct = {
+        Name : string
+        Phone : string
+        Verified : bool
+    }
+    let contactStruct = {
+        Name = "Alf"
+        Phone = "(206) 555-0157"
+        Verified = false
+    }
+    printfn $"Alf's contact card struct:\n{contactStruct}"
