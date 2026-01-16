@@ -331,7 +331,7 @@ module RecursiveDiscriminatedUnions =
             else (exists item right)
     let rec insert item bst =
         match bst with
-        | Empty -> Node(item, Empty, Empty)
+        | Empty -> Node (item, Empty, Empty)
         | Node (x, left, right) as node ->
             if item = x then node
             elif item < x then Node (x, insert item left, right)
