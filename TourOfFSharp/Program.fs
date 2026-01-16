@@ -336,3 +336,9 @@ module RecursiveDiscriminatedUnions =
             if item = x then node
             elif item < x then Node (x, insert item left, right)
             else Node (x, left, insert item right)
+
+    let tree = Empty
+    let tree1 = insert 10 tree
+    let tree2 = insert 5 tree1
+    let tree3 = insert 15 tree2
+    printfn $"{exists 5 tree3}\n{exists 15 tree3}\n{exists 7 tree3}"
