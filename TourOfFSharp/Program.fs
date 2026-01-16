@@ -302,3 +302,18 @@ module DiscriminatedUnions =
         for card in fullDeck do
             printfn $"{showPlayingCard card}"
     printAllCards()
+
+module SingleCaseDiscriminatedUnions =
+    type Address = Address of string
+    type Name = Name of string
+    type SSN = SSN of int
+
+    let address = Address "111 Alf Way"
+    let name = Name "Alf"
+    let ssn = SSN 1234567890
+
+    let unwrapAddress (Address a) = a
+    let unwrapName (Name n) = n
+    let unwrapSSN (SSN s) = s
+
+    printfn $"Address: {address |> unwrapAddress}, Name: {name |> unwrapName}, and SSN: {ssn |> unwrapSSN}"
