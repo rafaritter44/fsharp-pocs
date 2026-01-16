@@ -342,3 +342,21 @@ module RecursiveDiscriminatedUnions =
     let tree2 = insert 5 tree1
     let tree3 = insert 15 tree2
     printfn $"{exists 5 tree3}\n{exists 15 tree3}\n{exists 7 tree3}"
+
+module PatternMatching =
+    type Person = {
+        First : string
+        Last  : string
+    }
+    type Employee =
+        | Engineer of engineer: Person
+        | Manager of manager: Person * reports: List<Employee>
+        | Executive of executive: Person * reports: List<Employee> * assistant: Employee
+    let rec countReports(emp : Employee) =
+        1 + match emp with
+            | Engineer(person) ->
+                0
+            | Manager(person, reports) ->
+                reports |> List.sumBy countReports
+            | Executive(person, reports, assistant) ->
+                (reports |> List.sumBy countReports) + countReports assistant
