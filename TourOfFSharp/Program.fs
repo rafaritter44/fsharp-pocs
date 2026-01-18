@@ -360,3 +360,22 @@ module PatternMatching =
                 reports |> List.sumBy countReports
             | Executive(person, reports, assistant) ->
                 (reports |> List.sumBy countReports) + countReports assistant
+
+    let alice = { First = "Alice"; Last = "A." }
+    let bob = { First = "Bob"; Last = "B." }
+    let charlie = { First = "Charlie"; Last = "C." }
+    let david = { First = "David"; Last = "D." }
+    let eve = { First = "Eve"; Last = "E." }
+    let frank = { First = "Frank"; Last = "F." }
+
+    let eng1 = Engineer alice
+    let eng2 = Engineer bob
+    let eng3 = Engineer charlie
+    let eng4 = Engineer david
+
+    let mgr = Manager(eve, [ eng1; eng2 ])
+
+    let exec = Executive(frank, [mgr; eng3], eng4)
+
+    printfn $"Manager reports: {countReports mgr}"
+    printfn $"Executive reports: {countReports exec}"
