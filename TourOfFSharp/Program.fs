@@ -379,3 +379,10 @@ module PatternMatching =
 
     printfn $"Manager reports: {countReports mgr}"
     printfn $"Executive reports: {countReports exec}"
+
+    let findGraceWithOpenPosition(emps : List<Employee>) =
+        emps
+        |> List.filter(function
+                       | Manager({First = "Grace"}, []) -> true
+                       | Executive({First = "Grace"}, [], _) -> true
+                       | _ -> false)
