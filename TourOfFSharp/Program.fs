@@ -400,3 +400,25 @@ module PatternMatching =
     match result with
     | Some dto -> printfn $"It parsed! {dto}"
     | None -> printfn "It didn't parse!"
+
+    let parseInt = parseHelper System.Int32.TryParse
+    let parseDouble = parseHelper System.Double.TryParse
+    let parseTimeSpan = parseHelper System.TimeSpan.TryParse
+
+    let (|Int|_|) = parseInt
+    let (|Double|_|) = parseDouble
+    let (|Date|_|) = parseDateTimeOffset
+    let (|TimeSpan|_|) = parseTimeSpan
+
+    let printParseResult = function
+        | Int x -> printfn $"%d{x}"
+        | Double x -> printfn $"%f{x}"
+        | Date d -> printfn $"%O{d}"
+        | TimeSpan t -> printfn $"%O{t}"
+        | _ -> printfn "Nothing was parsable!"
+
+    printParseResult "12"
+    printParseResult "12.045"
+    printParseResult "19/01/2026"
+    printParseResult "9:01PM"
+    printParseResult "banana!"
