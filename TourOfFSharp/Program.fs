@@ -386,3 +386,8 @@ module PatternMatching =
                        | Manager({First = "Grace"}, []) -> true
                        | Executive({First = "Grace"}, [], _) -> true
                        | _ -> false)
+    let emps = [eng1; eng2; eng3; eng4; mgr; exec]
+    let grace = { First = "Grace"; Last = "G." }
+    printfn $"{findGraceWithOpenPosition (Engineer grace :: emps)}"
+    printfn $"{findGraceWithOpenPosition (Manager(grace, []) :: emps)}"
+    printfn $"""{findGraceWithOpenPosition (Executive(grace, [], Engineer { First = "Heidi"; Last = "H."}) :: emps)}"""
