@@ -391,3 +391,12 @@ module PatternMatching =
     printfn $"{findGraceWithOpenPosition (Engineer grace :: emps)}"
     printfn $"{findGraceWithOpenPosition (Manager(grace, []) :: emps)}"
     printfn $"""{findGraceWithOpenPosition (Executive(grace, [], Engineer { First = "Heidi"; Last = "H."}) :: emps)}"""
+
+    let private parseHelper (f: string -> bool * 'T) = f >> function
+        | true, item -> Some item
+        | false, _ -> None
+    let parseDateTimeOffset = parseHelper System.DateTimeOffset.TryParse
+    let result = parseDateTimeOffset "1970-01-01"
+    match result with
+    | Some dto -> printfn $"It parsed! {dto}"
+    | None -> printfn "It didn't parse!"
