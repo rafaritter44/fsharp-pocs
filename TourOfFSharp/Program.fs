@@ -433,3 +433,17 @@ module OptionValues =
         customer.ZipCode
         |> Option.bind calculator.GetState
         |> Option.map calculator.GetShippingZone
+
+    type ShippingCalculator() =
+        interface IShippingCalculator with
+            member _.GetState (ZipCode zip) =
+                match zip with
+                | z when z.StartsWith("90") -> Some "CA"
+                | z when z.StartsWith("10") -> Some "NY"
+                | _ -> None
+            member _.GetShippingZone state =
+                match state with
+                | "CA" -> 1
+                | "NY" -> 2
+                | _ -> 99
+    let calculator = ShippingCalculator() :> IShippingCalculator
