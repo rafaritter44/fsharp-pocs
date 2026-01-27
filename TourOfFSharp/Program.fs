@@ -438,8 +438,8 @@ module OptionValues =
         interface IShippingCalculator with
             member _.GetState (ZipCode zip) =
                 match zip with
-                | z when z.StartsWith("90") -> Some "CA"
-                | z when z.StartsWith("10") -> Some "NY"
+                | z when z.StartsWith "90" -> Some "CA"
+                | z when z.StartsWith "10" -> Some "NY"
                 | _ -> None
             member _.GetShippingZone state =
                 match state with
