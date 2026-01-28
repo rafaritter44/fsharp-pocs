@@ -447,3 +447,12 @@ module OptionValues =
                 | "NY" -> 2
                 | _ -> 99
     let calculator = ShippingCalculator() :> IShippingCalculator
+
+    let customerWithZip = { ZipCode = Some (ZipCode "90210") }
+    let customerWithoutZip = { ZipCode = None }
+    let customerWithUnknownZip = { ZipCode = Some (ZipCode "00000") }
+
+    let zone1 = CustomerShippingZone(calculator, customerWithZip)
+    let zone2 = CustomerShippingZone(calculator, customerWithoutZip)
+    let zone3 = CustomerShippingZone(calculator, customerWithUnknownZip)
+    printfn $"%A{zone1}\n%A{zone2}\n%A{zone3}"
