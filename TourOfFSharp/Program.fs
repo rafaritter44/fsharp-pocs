@@ -456,3 +456,16 @@ module OptionValues =
     let zone2 = CustomerShippingZone(calculator, customerWithoutZip)
     let zone3 = CustomerShippingZone(calculator, customerWithUnknownZip)
     printfn $"%A{zone1}\n%A{zone2}\n%A{zone3}"
+
+module UnitsOfMeasure =
+    open Microsoft.FSharp.Data.UnitSystems.SI.UnitNames
+
+    let val1 = 1600.0<meter>
+
+    [<Measure>]
+    type mile = static member asMeter = 1609.34<meter/mile>
+
+    let val2 = 500.0<mile>
+    let val3 = val2 * mile.asMeter
+
+    printfn $"After a %f{val1} race, I would walk %f{val2} miles, which would be %f{val3} meters."
