@@ -468,4 +468,4 @@ module UnitsOfMeasure =
     let val2 = 500.0<mile>
     let val3 = val2 * mile.asMeter
 
-    printfn $"After a %f{val1} race, I would walk %f{val2} miles, which would be %f{val3} meters."
+    printfn $"After a %.2f{val1} race, I would walk %.2f{val2} miles, which would be %.2f{val3} meters."
